@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juros Simples</title>
+    <script>
+        window.onload = function() {
+            const inputSaldo = document.getElementById('saldo');
+            const inputTaxa = document.getElementById('taxa');
+            const mes1 = document.getElementById('mes1');
+            const mes2 = document.getElementById('mes2');
+            const mes3 = document.getElementById('mes3');
+            const btnCalcular = document.getElementById('calcular');
+
+            btnCalcular.addEventListener('click', function() {
+                const saldo = parseFloat(inputSaldo.value);
+                const taxa = parseFloat(inputTaxa.value) / 100;
+
+                const rendimentoMes1 = saldo * taxa * 1;
+                const rendimentoMes2 = saldo * taxa * 2;
+                const rendimentoMes3 = saldo * taxa * 3;
+
+                mes1.textContent = `Após 1 mês: R$ ${(saldo + rendimentoMes1).toFixed(2)}`;
+                mes2.textContent = `Após 2 meses: R$ ${(saldo + rendimentoMes2).toFixed(2)}`;
+                mes3.textContent = `Após 3 meses: R$ ${(saldo + rendimentoMes3).toFixed(2)}`;
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Juros Simples</h1>
+    <label for="saldo">Saldo Inicial:</label>
+    <input type="text" id="saldo" placeholder="Digite o saldo"><br>
+
+    <label for="taxa">Taxa de Juros (%):</label>
+    <input type="text" id="taxa" placeholder="Digite a taxa de juros"><br>
+
+    <input type="button" id="calcular" value="Calcular"><br>
+
+    <h3>Resultados:</h3>
+    <p id="mes1"></p>
+    <p id="mes2"></p>
+    <p id="mes3"></p>
+</body>
+</html>
