@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <script>
+	window.onload = inicio;
+
+	function inicio() {
+	    let botao = document.getElementById('botao');
+	    botao.addEventListener('click', mostra);
+	}
+
+	function mostra() {
+	    let nome = document.getElementById('nome').value
+	    let nota = document.getElementById('nota').value
+	    let txtSaida = document.getElementById('saida');
+
+        if(parseFloat(nota)>=6) { 
+        // executa se teste == true
+        txtSaida.innerHTML = nome + ' aprovado';
+        } else {
+        // executa se teste == false
+        txtSaida.innerHTML = nome + ' reprovado';
+        }
+
+	}
+    </script>
+</head>
+<body>
+    <input type="nota" id="nota" placeholder="Insira sua nota"><br> 
+    <input type="nome" id="nome" placeholder="Insira seu nome">
+    <input type="button" id="botao" value="vapo"><br>
+    <p id="saida"></p>
+</body>
+</html>
