@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor JSON para Objeto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor JSON para Objeto</h1>
+    
+    <label for="jsonInput">Insira o JSON (com nome e idade):</label><br>
+    <textarea id="jsonInput" placeholder='{"nome":"Fulano","idade":22}'></textarea><br>
+    
+    <button onclick="converterJSON()">Converter</button>
+    
+    <div id="resultado"></div>
+
+    <script>
+        function converterJSON() {
+            const jsonInput = document.getElementById('jsonInput').value;
+            const resultadoDiv = document.getElementById('resultado');
+            
+            try {
+                const objeto = JSON.parse(jsonInput);
+                
+                if (objeto.nome && objeto.idade) {
+                    resultadoDiv.innerHTML = `
+                        <p><strong>Nome:</strong> ${objeto.nome}</p>
+                        <p><strong>Idade:</strong> ${objeto.idade}</p>
+                    `;
+                } else {
+                    resultadoDiv.innerHTML = "O JSON deve conter as propriedades 'nome' e 'idade'.";
+                }
+            } catch (e) {
+                resultadoDiv.innerHTML = "JSON inválido. Por favor, insira um JSON válido.";
+                console.error(e);
+            }
+        }
+    </script>
+</body>
+</html>

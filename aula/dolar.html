@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor Básico</title>
+</head>
+<body>
+    <h1>Conversor de Reais para Dólares</h1>
+    
+    <button onclick="pegarCotacao()">USD - Ver cotação</button>
+    <p id="cotacao"></p>
+    
+    <label>Valor em Reais:</label>
+    <input type="number" id="reais" placeholder="Digite o valor">
+    
+    <button onclick="converter()">Converter</button>
+    <p id="resultado"></p>
+
+    <script>
+        let cotacaoDolar = 0;
+        
+        function pegarCotacao() {
+            // Simulando uma API com valor fixo (na prática, usaria uma API real)
+            cotacaoDolar = 5.50; // Valor fictício para exemplo
+            document.getElementById('cotacao').innerHTML = 
+                "Cotação do dólar hoje: R$ " + cotacaoDolar.toFixed(2);
+        }
+        
+        function converter() {
+            const reais = parseFloat(document.getElementById('reais').value);
+            
+            if (isNaN(reais)) {
+                alert("Digite um valor válido!");
+                return;
+            }
+            
+            if (cotacaoDolar <= 0) {
+                alert("Primeiro obtenha a cotação do dólar!");
+                return;
+            }
+            
+            const dolares = reais / cotacaoDolar;
+            document.getElementById('resultado').innerHTML = 
+                "Você pode comprar US$ " + dolares.toFixed(2);
+        }
+    </script>
+</body>
+</html>
