@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pog</title>
+    <script>
+    window.onload = inicio;
+
+	function inicio() {
+	    let botao = document.getElementById('botao');
+	    botao.addEventListener('click', mostra);
+	}
+
+	function mostra() {
+      let nome = document.getElementById('nome').value
+      let salario = parseFloat(document.getElementById('salario').value)
+      let vendas = parseInt(document.getElementById('vendas').value)
+      let txtSaida = document.getElementById('saida');
+
+      for(let i= 1; i < 6; i++){
+         salario += vendas * 0.05;
+         txtSaida.innerHTML += '<p>' + ' total de ' + i + ' dias ' + salario + '</p>'  
+
+      }
+
+
+    }
+
+
+
+</script>
+</head>
+<body>
+    <body>
+        <input type="nome" id="nome" placeholder="Insira o nome"><br> 
+        <input type="salario" id="salario" placeholder="Insira o salario">
+        <input type="vendas" id="vendas" placeholder="Insira as vendas">
+        <input type="button" id="botao" value="vapo"><br>
+        <div id="saida"></div>
+</body>
+</html>
